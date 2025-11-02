@@ -51,8 +51,8 @@ def analyze_request(
     )
 
 def route_to_intermediate_analyst(
-    confidence: Annotated[int, "Confidence level for Gemma (1-10)"],
-    reasoning: Annotated[str, "Reasoning for routing to Gemma"],
+    confidence: Annotated[int, "Confidence level for Llama Instruct 3B (1-10)"],
+    reasoning: Annotated[str, "Reasoning for routing to Llama Instruct 3B"],
     context_variables: ContextVariables
 ) -> ReplyResult:
     """
@@ -60,12 +60,12 @@ def route_to_intermediate_analyst(
     """
     context_variables["current_complexity"] = "medium"
     context_variables["complexity_confidence"]["medium"] = confidence
-    context_variables["gemma_invocations"] += 1
+    context_variables["llama_instruct_3b_invocations"] += 1
     context_variables["routing_times"].append(time.time())
 
     return ReplyResult(
         target=AgentTarget(agent=intermediate_data_analyst),
-        message=f"Routing to Gemma with confidence {confidence}/10. Reasoning: {reasoning}",
+        message=f"Routing to Llama Instruct 3B with confidence {confidence}/10. Reasoning: {reasoning}",
         context_variables=context_variables
     )
 
@@ -88,14 +88,14 @@ def route_to_basic_analyst(
         context_variables=context_variables
     )
 
-def provide_gemma_response(
+def provide_llama_instruct_3b_response(
     response: Annotated[str, "The specialist's response to the request"],
     context_variables: ContextVariables
 ) -> ReplyResult:
     """
-    Submit a response from Gemma
+    Submit a response from Llama Instruct 3B
     """
-    print('Gemma response time', time.time())
+    print('Llama Instruct 3B response time', time.time())
     # Record the question and response
     context_variables["question_responses"].append({
         "complexity": "medium",
@@ -106,7 +106,7 @@ def provide_gemma_response(
     context_variables["response_times"].append(time.time())
 
     return ReplyResult(
-        message="Gemma response provided.",
+        message="Llama Instruct 3B response provided.",
         context_variables=context_variables
     )
 
@@ -178,8 +178,8 @@ When responding to queries, explain reasoning in clear terms appropriate for the
 
 Focus on being informative, precise, and helpful.
 
-Use the provide_gemma_response tool to submit your final response.""",
-    functions=[provide_gemma_response],
+Use the provide_llama_instruct_3b_response tool to submit your final response.""",
+    functions=[provide_llama_instruct_3b_response],
     llm_config=llama_instruct_3b
 )
 
@@ -269,7 +269,7 @@ Answer:
         "response_times": [],
 
         # Specialist invocation tracking
-        "gemma_invocations": 0,
+        "llama_instruct_3b_invocations": 0,
         "llama_instruct_invocations": 0,
 
         # Error state (not handled but could be used to route to an error agent)
@@ -321,7 +321,7 @@ Answer:
 
     # Show specialist invocation counts
     print("\n===== SPECIALIST INVOCATIONS =====\n")
-    print(f"Intermediate Data Analyst: {final_context['gemma_invocations']}")
+    print(f"Intermediate Data Analyst: {final_context['llama_instruct_3b_invocations']}")
     print(f"Basic Data Analyst: {final_context['llama_instruct_invocations']}")
 
     # Display the conversation flow
