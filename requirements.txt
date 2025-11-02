@@ -1,0 +1,6 @@
+transformers
+datasets
+ag2[ollama]
+typing_extensions
+ollama
+fix-busted-json
