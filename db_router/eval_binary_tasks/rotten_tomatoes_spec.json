@@ -1,0 +1,16 @@
+{
+  "task_name": "task_rotten_tomatoes_binary_sentiment_eval",
+  "definition": "Given a short movie review sentence, classify its sentiment as positive or negative.",
+  "example_inputs": [
+    "sayles has a knack for casting , often resurrecting performers who rarely work in movies now . . . and drawing flavorful performances from bland actors .",
+    "as allen's execution date closes in , the documentary gives an especially poignant portrait of her friendship with the never flagging legal investigator david presson .",
+    "though its rather routine script is loaded with familiar situations , the movie has a cinematic fluidity and sense of intelligence that makes it work more than it probably should .",
+    "a penetrating glimpse into the tissue-thin ego of the stand-up comic ."
+  ],
+  "example_outputs": [
+    "positive",
+    "positive",
+    "negative",
+    "positive"
+  ]
+}

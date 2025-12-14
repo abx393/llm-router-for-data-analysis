@@ -1,0 +1,11 @@
+{
+  "task_name": "task_airline_twitter_sentiment_binary_classification",
+  "definition": "A sentiment analysis job about the problems of each major U.S. airline. Twitter data was scraped from February of 2015 and contributors were asked to first classify positive, negative, and neutral tweets, followed by categorizing negative reasons (such as \"late flight\" or \"rude service\").",
+  "example_inputs": [
+    "@AmericanAir THANK YOU!!! 👍👍👍👍👍",
+    "@USAirways I keep missing my updated connections. Need to make it to #JAX to be in my friend's wedding! #strandedattheairport",
+    "@SouthwestAir Thanks a ton!",
+    "@AmericanAir why would it take that long? My credit card company says the card hasn't been charged yet. Should it take 5 days for this?"
+  ],
+  "example_outputs": ["positive", "negative", "positive", "negative"]
+}
