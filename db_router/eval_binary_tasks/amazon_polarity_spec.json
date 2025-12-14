@@ -1,0 +1,16 @@
+{
+  "task_name": "task_amazon_polarity_binary_sentiment_eval",
+  "definition": "Given an Amazon product review, classify its sentiment as positive or negative.",
+  "example_inputs": [
+    "When I used this product, I worried that the piece being superglued could come off, but when my monitor was stolen the thief attemted to rip the piece off the desk, the piece held on the desk and the plastic piece broke allowing the wire free. Now I am looking for one that is metal.",
+    "\"Laughing Boy\" by Oliver La Farge was written in in 1920. It Called a Navajo love story, it is beautifully written and wne the Pulitzer. My book club selected it. It is considered a classic.",
+    "The aerosol spray is very bad. Two different bottles stopped spraying when still half full. It cleans well, but the aerosol spray wastes half the bottle",
+    "I ordered this book because my grandson loves horses and is having trouble with reading. I thought this would be a great book for him to practice his reading. I was so disappointed when the book arrived. The packaging was fine but the text was terrible. The stories were disjointed and made no sense. I would not recommend this book to anyone. I could have returned the book for a refund but chose to keep it and use it as an example of the worst writing I have ever read in a published book."
+  ],
+  "example_outputs": [
+    "negative",
+    "positive",
+    "negative",
+    "negative"
+  ]
+}

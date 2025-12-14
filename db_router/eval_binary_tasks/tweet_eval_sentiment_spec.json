@@ -1,0 +1,16 @@
+{
+  "task_name": "task_tweeteval_sentiment_binary_eval",
+  "definition": "Given a tweet, classify its sentiment as positive or negative.",
+  "example_inputs": [
+    "@user @user #TRUMPTRANSITIONTEAM ALL WITH HISTORY OF ANTISEMITISM AND SUCH...",
+    "The \"Clinton Foundation\" enterprise has nothing to sell if she is not in power. Desperately trying to stay in busin…",
+    "Waiting to see a photo of Steve Bannon where he doesn't look like he has the worst hangover of his life.",
+    "Ever heard of turkey fried chicken? A little late for #NationalFastFoodDay but still hilarious! #FastFood"
+  ],
+  "example_outputs": [
+    "negative",
+    "negative",
+    "negative",
+    "positive"
+  ]
+}
